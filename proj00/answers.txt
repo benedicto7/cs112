@@ -1,0 +1,24 @@
+Step 3. --------------------------
+Ben Elpidius, bee6, 1/11/2022, 0
+Step 4. --------------------------
+0x7ffe8f3fe134
+0x7ffe8f3fe150
+E
+0x7ffe8f3fe138
+0x7ffe8f3fe133
+0x7ffe8f3fe140
+Step 5. --------------------------
+25
+37
+45
+Step 6. --------------------------
+float array[20];
+cout << sizeof (array) << endl;
+80
+Step 7. --------------------------
+float * x = &array[7];
+*x = 17.771;
+cout << array[7] << endl;
+cout << *x << endl;
+17.771
+17.771
