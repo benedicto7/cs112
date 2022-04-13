@@ -1,0 +1,278 @@
+Ben Elpidius bee6
+Step 1. -------- 15:49 -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+using namespace std;
+#include <cassert>
+
+double constrain(double value, double low, double high) {
+	if (value > high) {
+		return high;
+	}
+	else if (value < low) {
+		return low;
+	}
+	else {
+		return value;
+	}
+}
+
+int main() {
+	assert(constrain(5, 1, 10) == 5); //test value
+	assert(constrain(5, 1, 4) == 4);  //test high
+	assert(constrain(5, 6, 10) == 6); //test low
+	cout << "All test passed!" << endl;
+}
+
+Output:
+All test passed!
+
+Step 2. -------- 16:00 -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+using namespace std;
+#include <cassert>
+#include "utils.h"
+
+int main() {
+	assert(constrain(5, 1, 10) == 5); //test value
+	assert(constrain(5, 1, 4) == 4);  //test high
+	assert(constrain(5, 6, 10) == 6); //test low
+
+	assert(constrain(10) == 10);
+	assert(constrain(110) == 100);
+	assert(constrain(-10) == 0);
+	cout << "All test passed!" << endl;
+}
+
+/*
+ * utils.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include "utils.h"
+
+double constrain(double value, double low, double high) {
+	if (value > high) {
+		return high;
+	}
+	else if (value < low) {
+		return low;
+	}
+	else {
+		return value;
+	}
+}
+
+/*
+ * utils.h
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#ifndef UTILS_H_
+#define UTILS_H_
+
+double constrain(double value, double low=0.0, double high=100.0);
+
+
+#endif /* UTILS_H_ */
+
+Step 3. -------- 16:37 -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+using namespace std;
+#include <cassert>
+#include "utils.h"
+
+int main() {
+	assert(isPrime(7) == true);
+	assert(isPrime(6) == false);
+	assert(isPrime(1) == false); //not prime
+	assert(isPrime(2) == true); //prime
+	assert(isPrime(4) == false); //not prime
+
+	cout << "All test passed!" << endl;
+}
+
+/*
+ * utils.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include "utils.h"
+
+double constrain(double value, double low, double high) {
+	if (value > high) {
+		return high;
+	}
+	else if (value < low) {
+		return low;
+	}
+	else {
+		return value;
+	}
+}
+
+int isPrime(unsigned int n) {
+	for (unsigned int x=2;x<=(n/2);x++) {
+		if ((n%x)==0) {
+			return false; //not prime
+		}
+	}
+	if (n==1) {
+		return false; //not prime
+	}
+
+	else if (n==2) {
+		return true; //prime
+	}
+
+	return true; //prime
+}
+
+/*
+ * utils.h
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#ifndef UTILS_H_
+#define UTILS_H_
+
+double constrain(double value, double low=0.0, double high=100.0);
+int isPrime(unsigned int n);
+
+#endif /* UTILS_H_ */
+
+Finish: 21:23
+Step 4. -------- 16:09 -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+using namespace std;
+#include <cassert>
+#include "utils.h"
+#include <array>
+
+void findNPrimes(unsigned int primes[], unsigned int size) {
+	unsigned y = 0;
+
+	while (true) {
+		for (unsigned int x = 2; x<=size; x++) {
+			if (isPrime(x)) {
+				primes[y]=x; //if its prime, inserts the value into the array
+				y++;
+			}
+		}
+		break; //breaks when x exceeds the size of the first x primes we are trying to find.
+	}
+}
+
+int main() {
+	assert(isPrime(7) == true);
+	assert(isPrime(6) == false);
+	assert(isPrime(1) == false); //not prime
+	assert(isPrime(2) == true); //prime
+	assert(isPrime(4) == false); //not prime
+	assert(isPrime(541) == true);
+
+	unsigned int primes[100];
+	findNPrimes(primes, 547);
+	assert(primes[0] == 2);
+	assert(primes[2] == 5);
+	assert(primes[99] == 541);
+
+	cout << "All test passed!" << endl;
+}
+
+Output:
+"All test passed!"
+
+/*
+ * utils.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include "utils.h"
+
+double constrain(double value, double low, double high) {
+	if (value > high) {
+		return high;
+	}
+	else if (value < low) {
+		return low;
+	}
+	else {
+		return value;
+	}
+}
+
+int isPrime(unsigned int n) {
+	for (unsigned int x=2;x<=(n/2);x++) {
+		if ((n%x)==0) {
+			return false; //not prime
+		}
+	}
+	if (n==1) {
+		return false; //not prime
+	}
+
+	else if (n==2) {
+		return true; //prime
+	}
+
+	return true; //prime
+}
+
+/*
+ * utils.h
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#ifndef UTILS_H_
+#define UTILS_H_
+
+double constrain(double value, double low=0.0, double high=100.0);
+int isPrime(unsigned int n);
+
+#endif /* UTILS_H_ */
+
+Finish: 16:58
