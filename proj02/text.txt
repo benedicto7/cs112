@@ -1,0 +1,87 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 25, 2022
+ *      Author: bee6
+ */
+
+#include <cassert>
+#include <string>
+#include <iostream>
+#include <fstream>
+using namespace std;
+#include <cassert>
+
+int main() {
+	int n;
+	while (true) {
+		cout << "Enter an odd number between 1 to 15: ";
+		cin >> n;
+		for (int i=1; i<=15; i=i+2) {
+			if (n == i) {
+				cout << endl;
+				cout << "valid" << endl;
+				goto stop;
+			}
+		}
+		cout << endl;
+		cout << "The number you have entered is invalid." << endl;
+		cout << "Please try again." << endl;
+		cout << endl;
+		continue;
+	}
+
+	stop:
+	int magic_square[n][n]; //[vertical][horizontal]
+
+	return 0;
+}
+
+int main() {
+	cout << "Enter an odd number between 1 to 15: ";
+	cin >> n;
+
+	for (int i=0; i<15; i=i+2) {
+		if (n == i) {
+			cerr << "Error!" << endl;
+			exit(1);
+		}
+	}
+}
+
+int check(int& x)
+{
+	for (int i=0; i<15; i=i+2)
+	{
+		if (x == i)
+		{
+			throw "Error!";
+		}
+	}
+	return x;
+}
+
+
+int main() {
+	int x=15;
+
+	cout << "Enter an odd number between 1 to 15: ";
+	cin >> x;
+
+	try
+	{
+		check(x);
+		cout << "Dimension: " << x << endl;
+	}
+	catch(const char* msg)
+	{
+		cerr << msg << endl;
+		exit(1);
+	}
+
+	cout << "hi";
+
+
+	return 0;
+}
+
