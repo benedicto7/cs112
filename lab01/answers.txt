@@ -1,0 +1,366 @@
+Ben Elpidius bee6
+Step 1. -------- 12:35pm -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+	cout << "Enter your grade: " << endl;
+	unsigned int grade;
+	cin >> grade;
+
+	if (grade >= 90) {
+		cout << "Your grade is A." << endl;
+	}
+	else if (grade >= 80) {
+		cout << "Your grade is B." << endl;
+	}
+	else if (grade >= 70) {
+		cout << "Your grade is C." << endl;
+	}
+	else if (grade >= 60) {
+		cout << "Your grade is D." << endl;
+	}
+	else {
+		cout << "Your grade is F." << endl;
+	}
+}
+
+Output:
+Enter your grade: 
+90
+Your grade is A.
+
+Step 2. -------- 12:51pm -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+	cout << "Enter plan name: ";
+	string plan_name;
+	getline(cin, plan_name);
+
+	cout << "Enter month: ";
+	unsigned int month;
+	cin >> month;
+
+	if (plan_name == "silver") {
+		if (month >= 2) {
+			cout << "The cost for your plan is $60.";
+		}
+		else if (month == 1) {
+			cout << "The cost for your plan is $90.";
+		}
+	}
+
+	else if (plan_name == "gold") {
+		if (month >= 7) {
+			cout << "The cost for your plan is $35.";
+		}
+		else if (month >= 2) {
+			cout << "The cost for your plan is $70.";
+		}
+		else if (month == 1) {
+			cout << "The cost for your plan is $90.";
+		}
+	}
+
+	else {
+		cout << "You did not select an appropriate plan name.";
+	}
+}
+
+Output:
+Enter plan name: silver
+Enter month: 5
+The cost for your plan is $60.
+
+Step 3. -------- 13:10pm -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+	string plan_name;
+	while(true) {
+		cout << "Enter plan name: ";
+		getline(cin, plan_name);
+
+		if ((plan_name == "gold") || (plan_name == "silver")) {
+			break;
+		}
+		else {
+			cout << "I'm sorry, " << plan_name << " is not a known plan." << endl;
+			cout << "Enter plan name: ";
+			continue;
+		}
+	}
+
+	cout << "Enter month: ";
+	unsigned int month;
+	cin >> month;
+
+	if (plan_name == "silver") {
+		if (month >= 2) {
+			cout << "The cost for your plan is $60.";
+		}
+		else if (month == 1) {
+			cout << "The cost for your plan is $90.";
+		}
+	}
+
+	else if (plan_name == "gold") {
+		if (month >= 7) {
+			cout << "The cost for your plan is $35.";
+		}
+		else if (month >= 2) {
+			cout << "The cost for your plan is $70.";
+		}
+		else if (month == 1) {
+			cout << "The cost for your plan is $90.";
+		}
+	}
+}
+
+Output:
+Enter plan name: ear
+I'm sorry, ear is not a known plan.
+Enter plan name: Enter plan name: ded
+I'm sorry, ded is not a known plan.
+Enter plan name: Enter plan name: ew
+I'm sorry, ew is not a known plan.
+Enter plan name: Enter plan name: gold
+Enter month: 4
+The cost for your plan is $70.
+
+Step 4. -------- 13:28pm -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+	char letter;
+	cout << "Enter a single lowercase letter: ";
+	cin >> letter;
+
+	switch (letter) {
+	case 'a': case 'e': case 'i': case 'o': case 'u':
+		cout << letter << " is a vowel." << endl;
+		break;
+	default:
+		cout << letter << " is not a vowel." << endl;
+		break;
+	}
+}
+
+Output:
+Enter a single lowercase letter: a
+a is a vowel.
+
+Step 5. -------- 13:49pm -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+#include <cassert>
+using namespace std;
+
+int main(){
+	unsigned values[8];
+	for (int x=0; x <= 8; x++) {
+		values[x] = x * 8;
+	}
+
+	assert(values[0] == 0);
+	assert(values[3] == 24);
+	assert(values[7] == 56);
+}
+
+Output:
+
+Step 6. -------- 14:06pm -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+#include <cassert>
+using namespace std;
+
+int main(){
+	double values[100];
+
+	for (int x=0; x <= 100; x++) {
+		values[x] = x * 0.1;
+	}
+
+	double sum=0;
+	for (int x=100; x>=0; x--) {
+		sum = sum + values[x];
+	}
+
+	cout << sum << endl;
+}
+
+Output:
+505
+
+Step 7. -------- 14:21pm -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int check(){
+
+	char letter;
+	cout << "Enter a single lowercase letter: ";
+	cin >> letter;
+
+	switch (letter) {
+	case 'a': case 'e': case 'i': case 'o': case 'u':
+		return true;
+		break;
+	default:
+		return false;
+		break;
+	}
+}
+
+int main() {
+	if (check() == true) {
+		cout << "Letter is a vowel." << endl;
+	}
+
+	else {
+		cout << "Letter is not a vowel." << endl;
+	}
+
+}
+
+Output:
+Enter a single lowercase letter: d
+Letter is not a vowel.
+
+Step 8. -------- 14:35pm -----------------
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 18, 2022
+ *      Author: bee6
+ */
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Gets the name of the plan.
+string getPlan(){
+	string plan_name;
+	while(true) {
+		cout << "Enter plan name: ";
+		getline(cin, plan_name);
+
+		if ((plan_name == "gold") || (plan_name == "silver")) {
+			break;
+		}
+		else {
+			cout << "I'm sorry, " << plan_name << " is not a known plan." << endl;
+			cout << "Enter plan name: ";
+			continue;
+		}
+	}
+	return plan_name;
+}
+
+int getMonths() {
+	cout << "Enter month: ";
+	unsigned int month;
+	cin >> month;
+	return month;
+}
+
+// Returns the total cost for a plan.
+string computeCost(string plan_name, int month) {
+	if (plan_name == "silver") {
+		if (month >= 2) {
+			return "The cost for your plan is $60.";
+		}
+		else if (month == 1) {
+			return "The cost for your plan is $90.";
+		}
+	}
+
+	else if (plan_name == "gold") {
+		if (month >= 7) {
+			return "The cost for your plan is $35.";
+		}
+		else if (month >= 2) {
+			return "The cost for your plan is $70.";
+		}
+		else if (month == 1) {
+			return "The cost for your plan is $90.";
+		}
+	}
+}
+
+int main() {
+	string plan = getPlan();
+	int month = getMonths();
+	string cost = computeCost(plan, month);
+	cout << cost << endl;
+}
+
+Output:
+Enter plan name: s
+I'm sorry, s is not a known plan.
+Enter plan name: Enter plan name: dw
+I'm sorry, dw is not a known plan.
+Enter plan name: Enter plan name: gold
+Enter month: 1
+The cost for your plan is $90.
+
+Finish: 15:40pm
