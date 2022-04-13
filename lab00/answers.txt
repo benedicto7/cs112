@@ -1,0 +1,37 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jan 11, 2022
+ *      Author: bee6
+ */
+
+
+// project0
+unsigned int BIG_NUMBER = 10000000;
+string name = "Ben Elpidius";
+char last_name = 'E';
+double pi = 3.1415;
+bool type = false;
+long x = 0;
+
+unsigned int * big = &BIG_NUMBER; // have to use & for the address/index
+cout << big << endl;
+
+cout << &BIG_NUMBER << endl;
+cout << &name << endl;
+cout << &last_name << endl;
+cout << &pi << endl;
+cout << &type << endl;
+cout << &x << endl;
+
+int number = 37;
+cout << hex << number << endl;
+cout << dec << number << endl;
+cout << oct << number << endl;
+
+array[7] = 17.771;
+cout << array[7] << endl;
+cout << &array[7] << endl;
+
+cout << &array[7] << endl; //will give the address because &
+cout << x << endl; //will give the address because no *
